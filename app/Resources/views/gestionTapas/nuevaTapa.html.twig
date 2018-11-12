@@ -1,0 +1,25 @@
+{# Plantilla de nuestra aplicacion #}
+{% extends 'base.html.twig' %}
+{% form_theme form 'form/tapaForm.html.twig' %}
+
+{# Título #}
+{% block title %}
+    Nueva tapa
+{% endblock %}
+
+{# Body #}
+{% block body %}
+    <div class="container">
+        <!-- Page Heading/Breadcrumbs -->
+        <h1 class="mt-4 mb-3">Nueva tapa</h1>
+
+        <!-- Portfolio Item Row -->
+        <div class="row">
+            <div class="col-md-12">
+                {{ form_start(form) }}
+                {{ form_widget(form) }}
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

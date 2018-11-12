@@ -63,3 +63,8 @@ swiftmailer:
 sensio_framework_extra:
   router:
     annotations: false
+
+fos_ck_editor:
+  configs:
+    my_config:
+      toolbar: standard

@@ -17,7 +17,7 @@ class DefaultController extends Controller
         $tapaRepository = $this->getDoctrine()->getRepository(Tapa::class);
         $tapas = $tapaRepository->findByTop(1);
 
-        return $this->render('frontal/index.html.twig', array('tapas'=>$tapas));
+        return $this->render('frontal/index.html.twig', array('tapas' => $tapas));
     }
 
     /**
@@ -25,7 +25,6 @@ class DefaultController extends Controller
      */
     public function nosotrosAction(Request $request)
     {
-        // replace this example code with whatever you need
         return $this->render('frontal/nosotros.html.twig');
     }
 
@@ -34,7 +33,6 @@ class DefaultController extends Controller
      */
     public function contactarAction(Request $request, $sitio = "todos")
     {
-        // replace this example code with whatever you need
         return $this->render('frontal/bares.html.twig', array("sitio" => $sitio));
     }
 
@@ -43,7 +41,13 @@ class DefaultController extends Controller
      */
     public function tapaAction(Request $request, $id = null)
     {
-        // replace this example code with whatever you need
-        return $this->render('frontal/tapa.html.twig', array("tapa" => $id));
+        if ($id != null) {
+            $tapaRepository = $this->getDoctrine()->getRepository(Tapa::class);
+            $tapa = $tapaRepository->find($id);
+
+            return $this->render('frontal/tapa.html.twig', array("tapa" => $tapa));
+        } else {
+            return $this->redirectToRoute('homepage');
+        }
     }
 }
